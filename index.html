@@ -2,11 +2,15 @@
 
 <html>
 <head>
-<title>Prueba</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,maximun-scale=2"/>	
+	<title>Prueba2</title>
+	<link rel="stylesheet" href="js/jQueryMobile/jquery.mobile.theme-1.4.2.min.css"/>
+	<script src="js/jQuery-1.11.1.min.js"></script>
+	<script src="js/jQueryMobile/jquery.mobile-1.4.2.min.js"></script>
 
 
 <script src="css/source-sans-pro.js"></script>
-<link href="css/styles.css" rel="stylesheet">
+
 <script src="lib/jquery-1.8.2.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
 
@@ -20,19 +24,35 @@ alert("el dispositivo esta listo para usar la API de phonegap")
 </head>
 
 <body>
-
-<h1>Hola Mundo</h1>
-<p>mi primera app </p>
-<button id="boton1">Boton</button>
-
-<script>
-document.getElementById("boton1").onclick = function(){
-alert("hiciste click")
-}
-</script>
-
-
-
-
+	<div data-role="page" id="inicio">
+		<div data-role="header">
+			<h1>Inicio</h1>
+		</div>
+		<a href="#pantalla2" data-role="button">Ir a Pantalla 2</a>
+	</div>
+	
+	<div data-role="page" id="pantalla2">
+		<div data-role="header">
+			<h1>Pantalla 2</h1>
+		</div>
+		<a href="#" data-rel="back" data-role="button">Regresar</a>
+		<!--<ul data-role="listview">
+			<li><a href="#pantalla3" data-role="button">Pantalla 1</a></li>
+			<li><a href="#pantalla3" data-role="button">Pantalla 2</a></li>
+			<li><a href="#pantalla3" data-role="button">Pantalla 3</a></li>
+			<li><a href="#pantalla3" data-role="button">Pantalla 4</a></li>
+			<li><a href="#pantalla3" data-role="button">Pantalla 5</a></li>
+			<li><a href="#pantalla3" data-role="button">Pantalla 6</a></li>
+		</ul>
+		<div data-role="footer">
+			<h1>fin</h1>
+		</div>-->
+	</div>
+	
+	<!--<div data-role="page" id="pantalla3">
+		<h1>Pantalla 3</h1>
+		<a href="#" data-rel="back" data-role="button">Regresar</a>
+	</div>-->
+				
 </body>
 </html>
