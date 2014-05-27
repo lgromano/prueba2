@@ -2,57 +2,63 @@
 
 <html>
 <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0,maximun-scale=2"/>	
-	<title>Prueba2</title>
-	<link rel="stylesheet" href="js/jQueryMobile/jquery.mobile.theme-1.4.2.min.css"/>
-	<script src="js/jQuery-1.11.1.min.js"></script>
-	<script src="js/jQueryMobile/jquery.mobile-1.4.2.min.js"></script>
-
+<title>notificaciones</title>
+<meta charset = "utf-8">
 
 <script src="css/source-sans-pro.js"></script>
-
+<link href="css/styles.css" rel="stylesheet">
 <script src="lib/jquery-1.8.2.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
 
-<script>
-document.addEventListener("deviceready", dispositivoListo,false);
-function dispositivoListo(){
-alert("el dispositivo esta listo para usar la API de phonegap")
-}
-</script>
+<script type="text/javascript">
+  //muestra una alerta basica
+
+  function mostrarAlerta1(){
+     alert("alerta basica");
+     return false;
+
+  }
+
+  //muestra una alerta personalizada
+
+  function mostrarAlerta2(){
+    navigator.notification.alert('Esta es una alerta de PhoneGap',null,'Mi Aplicacion','Aceptar');
+
+  }
+
+  //muestra un dialogo de confirmacion
+
+  function mostrarAlerta3(){
+    navigator.notification.confirm('Desea aceptar las condiciones?',respuesta,'Mi Aplicacion','Aceptar,Rechazar');
+  }
+
+  //Reacciona segun la respuesta del dialogo de confirmacion
+
+  function respuesta(){
+    if (boton == 1){
+      alert("Has aceptado las condiciones :)")
+    }else if (boton == 2){
+      alert("No aceptas las condiciones :(")
+    }
+  }
+
+  function reproducirSonido(cantidad){
+    navigator.notification.beep(cantidad);
+  }
+
+  function vibrar(){
+    navigator.notification.vibrate(2000);
+  }
+</script> 
 
 </head>
 
 <body>
-	<div data-role="page" id="inicio">
-		<div data-role="header">
-			<h1>Inicio</h1>
-		</div>
-		<a href="#pantalla2" data-role="button">Ir a Pantalla 2</a>
-	</div>
-	
-	<div data-role="page" id="pantalla2">
-		<div data-role="header">
-			<h1>Pantalla 2</h1>
-		</div>
-		<a href="#" data-rel="back" data-role="button">Regresar</a>
-		<!--<ul data-role="listview">
-			<li><a href="#pantalla3" data-role="button">Pantalla 1</a></li>
-			<li><a href="#pantalla3" data-role="button">Pantalla 2</a></li>
-			<li><a href="#pantalla3" data-role="button">Pantalla 3</a></li>
-			<li><a href="#pantalla3" data-role="button">Pantalla 4</a></li>
-			<li><a href="#pantalla3" data-role="button">Pantalla 5</a></li>
-			<li><a href="#pantalla3" data-role="button">Pantalla 6</a></li>
-		</ul>
-		<div data-role="footer">
-			<h1>fin</h1>
-		</div>-->
-	</div>
-	
-	<!--<div data-role="page" id="pantalla3">
-		<h1>Pantalla 3</h1>
-		<a href="#" data-rel="back" data-role="button">Regresar</a>
-	</div>-->
-				
+
+    <button onclick = "mostrarAlerta1();">Mostrar Alerta Basica</button><br>
+    <button onclick = "mostrarAlerta2();">Mostrar Alerta Personalizada</button><br>
+    <button onclick = "mostrarAlerta3();">Mostrar dialogo de confirmacion</button><br>
+    <button onclic= "reproducirSonido(3);">Activar Alerta</button>
+    <button onclick= "vibrar();">Vibrar!</button>
 </body>
 </html>
